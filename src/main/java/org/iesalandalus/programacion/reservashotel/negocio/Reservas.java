@@ -151,7 +151,7 @@ public class Reservas {
             throw new NullPointerException("ERROR: La reserva no puede ser nula.");
         if (fecha == null)
             throw new NullPointerException("ERROR: La fecha no puede ser nula.");
-        if (fecha.isBefore(reserva.getFechaInicioReserva().isBefore()) || fecha.isAfter(reserva.getFechaFinReserva().atStartOfDay()))
+        if (fecha.isBefore(reserva.getFechaInicioReserva().atStartOfDay()) || fecha.isAfter(reserva.getFechaFinReserva().atStartOfDay()))
             throw new IllegalArgumentException("ERROR: La fecha introducida no es correcta.");
         reserva.setCheckOut(fecha);
     }
