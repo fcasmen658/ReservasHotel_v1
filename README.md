@@ -12,8 +12,9 @@ También crear nuevas referencias a nuevos objetos cuando los vayamos a asignar 
 Por otro lado, dado el buen hacer en la primera entrega, el cliente ha decidido que se añada al menú de usuario la posibilidad de **realizar operacion de Checkin y Checkout**.
 
 #### Primeros Pasos
-1. Realiza un **fork** del repositorio de tu tarea anterior en otro nuevo llamado **ReservasHotel_v1**. Dicho repositorio lo clonarás localmente y realizarás las diferentes modificaciones que se piden en esta tarea.
-2. Modifica el archivo `README.md`. Realiza tu **primer commit**.
+1. Realiza un **fork** del repositorio de tu tarea anterior en otro nuevo llamado **ReservasHotel_v1**.
+2. Dicho repositorio lo clonarás localmente y realizarás las diferentes modificaciones que se piden en esta tarea.
+3. Modifica el archivo `README.md`. Realiza tu **primer commit**.
 
 #### Reservas
 1. Agrega el método `realizarCheckin` para que se establezca la fecha de checkin de la reserva indicada como parámetro.
@@ -21,15 +22,20 @@ Por otro lado, dado el buen hacer en la primera entrega, el cliente ha decidido 
 3. Realiza el **commit** correspondiente.
 
 #### Opcion
-1. Modifica el enumerado `Opcion` creado en el spring anterior para que se añadan las operaciones realizar checkin y realizar checkout, tal y como aparece en el diagrama de clases.
+1. Modifica el enumerado `Opcion` creado en el spring anterior para que se añadan las operaciones realizar checkin y 
+   realizar checkout, tal y como aparece en el diagrama de clases.
 2. Realiza un **commit** con la modificación de este enumerado.
 
 #### Consola
-1. Modifica la clase `Consola` para que se incluya el método `leerFechaHora` que nos pedirá que introduzcamos una cadena correspondiente a una fecha y hora en el formato adecuado y devolverá el objeto `LocalDateTime` correspondiente. Esto se repetirá mientras la fecha introducida no sea válida.
+1. Modifica la clase `Consola` para que se incluya el método `leerFechaHora` que nos pedirá que introduzcamos una cadena
+   correspondiente a una fecha y hora en el formato adecuado y devolverá el objeto `LocalDateTime` correspondiente. 
+   Esto se repetirá mientras la fecha introducida no sea válida.
 2. Realiza el **commit** correspondiente.
 
 #### Modelo
-1. Crea la clase `Modelo` en el paquete indicado en el diagrama. Esta clase gestionará todo el modelo de nuestra aplicación. Será la encargada de comunicarse con las tres clases que hacen referencia a las colecciones de datos (huéspedes, habitaciones y reservas).
+1. Crea la clase `Modelo` en el paquete indicado en el diagrama. Esta clase gestionará todo el modelo de nuestra 
+   aplicación. Será la encargada de comunicarse con las tres clases que hacen referencia a las colecciones de datos
+   (huéspedes, habitaciones y reservas).
 2. Crea el método `comenzar` que creará la instancia de las clases de negocio.
 3. Crea el método `terminar` que simplemente mostrará un mensaje informativo indicando que el modelo ha terminado.
 4. Crea los diferentes métodos `insertar` (para huesped, habitación y reserva).
