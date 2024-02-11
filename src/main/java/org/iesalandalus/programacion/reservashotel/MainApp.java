@@ -39,45 +39,24 @@ public class MainApp {
                 System.exit(0);
             }
             case INSERTAR_HUESPED -> insertarHuesped();
-                break;
             case BUSCAR_HUESPED -> buscarHuesped();
-                break;
             case BORRAR_HUESPED -> borrarHuesped();
-                break;
             case MOSTRAR_HUESPED -> mostrarHuespedes();
-                break;
             case INSERTAR_HABITACION -> insertarHabitacion();
-                break;
             case BUSCAR_HABITACION -> buscarHabitacion();
-                break;
             case BORRAR_HABITACION -> borrarHabitacion();
-                break;
             case MOSTRAR_HABITACIONES -> mostrarHabitaciones();
-                break;
             case INSERTAR_RESERVA -> insertarReserva();
-                break;
             case ANULAR_RESERVA -> anularReserva();
-                break;
             case MOSTRAR_RESERVAS -> mostrarReservas();
-                break;
             case CONSULTAR_DISPONIBILIDAD -> {
-                TipoHabitacion tH = Consola.leerTipoHabitacion();
-                LocalDate fechaI = Consola.leerFecha("Fecha de inicio de reserva: ");
-                LocalDate fechaF = Consola.leerFecha("Fecha de fin de reserva: ");
-                consultarDisponibilidad(tH, fechaI, fechaF);
+                TipoHabitacion tipoHabitacion = Consola.leerTipoHabitacion();
+                System.out.print("Fecha de inicio de reserva: ");
+                LocalDate fechaInicio = Consola.leerFecha("Fecha de inicio de reserva: ");
+                System.out.print("Fecha de fin de reserva: ");
+                LocalDate fechaFin = Consola.leerFecha("Fecha de fin de reserva: ");
+                consultarDisponibilidad(tipoHabitacion, fechaInicio, fechaFin);
             }
-
-
-            // case CONSULTAR_DISPONIBILIDAD:  {
-            //       TipoHabitacion tipo = Consola.leerTipoHabitacion();
-            // System.out.println("Fecha de inicio de reserva:");
-            // LocalDate fechaI = Consola.leerFecha(Entrada.cadena());
-            // System.out.println("Fecha de fin de reserva:");
-            // LocalDate fechaF = Consola.leerFecha(Entrada.cadena());
-            // consultarDisponibilidad(Consola.leerTipoHabitacion(), fechaI, fechaF);
-            //   }
-
-
         }
     }
     public void insertarHuesped() {

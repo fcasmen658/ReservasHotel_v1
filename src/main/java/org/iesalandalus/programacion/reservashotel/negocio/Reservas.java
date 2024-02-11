@@ -7,6 +7,7 @@ import org.iesalandalus.programacion.reservashotel.dominio.TipoHabitacion;
 
 import javax.naming.OperationNotSupportedException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Reservas {
     private final Reserva[] coleccionReservas;
@@ -134,5 +135,24 @@ public class Reservas {
             }
         }
         return copiaEspecial;
+    }
+
+    public void realizarCheckIn(Reserva reserva, LocalDateTime fecha){
+    if (reserva == null)
+        throw new NullPointerException("ERROR: La reserva no puede ser nula.");
+    if (fecha == null)
+        throw new NullPointerException("ERROR: La fecha no puede ser nula.");
+    if (fecha.isBefore(reserva.getFechaInicioReserva().atStartOfDay()) || fecha.isAfter(reserva.getFechaFinReserva().atStartOfDay()))
+        throw new IllegalArgumentException("ERROR: La fecha introducida no es correcta.");
+    reserva.setCheckIn(fecha);
+    }
+    public void realizarCheckOut(Reserva reserva, LocalDateTime fecha){
+        if (reserva == null)
+            throw new NullPointerException("ERROR: La reserva no puede ser nula.");
+        if (fecha == null)
+            throw new NullPointerException("ERROR: La fecha no puede ser nula.");
+        if (fecha.isBefore(reserva.getFechaInicioReserva().isBefore()) || fecha.isAfter(reserva.getFechaFinReserva().atStartOfDay()))
+            throw new IllegalArgumentException("ERROR: La fecha introducida no es correcta.");
+        reserva.setCheckOut(fecha);
     }
 }
