@@ -1,12 +1,11 @@
 package org.iesalandalus.programacion.reservashotel.vista;
 
-import org.iesalandalus.programacion.reservashotel.dominio.*;
-import org.iesalandalus.programacion.reservashotel.modelo.dominio.*;
-import org.iesalandalus.programacion.utilidades.Entrada;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.iesalandalus.programacion.reservashotel.modelo.dominio.*;
+import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class Consola {
     public static void mostrarMenu(){
@@ -27,11 +26,11 @@ public class Consola {
     }
 
     public static Opcion elegirOpcion(){
-        System.out.println("---------------");
-        System.out.println(" ");
+        System.out.println("Reservas Hotel IES Al-Andalus");
+        System.out.println("      - Menu principal -       ");
         int opcion;
         do{
-            System.out.print("Elegir una opción del rango (0-12): ");
+            System.out.println("Elegir una opción del rango (0-"+ Opcion.values().length+"): ");
             opcion = Entrada.entero();
     } while (opcion < 0 || opcion > Opcion.values().length-1);
 
@@ -49,6 +48,8 @@ public class Consola {
             case 10 -> Opcion.ANULAR_RESERVA;
             case 11 -> Opcion.MOSTRAR_RESERVAS;
             case 12 -> Opcion.CONSULTAR_DISPONIBILIDAD;
+            case 13 -> Opcion.REALIZAR_CHECKIN;
+            case 14 -> Opcion.REALIZAR_CHECKOUT;
             case 0 -> Opcion.SALIR;
             default -> throw new IllegalStateException("Valor fuera de rango (0-12)");
         };
@@ -81,13 +82,29 @@ public class Consola {
 
         Pattern p = Pattern.compile("[0-3][0-9]/[0-1][0-9]/[1-2][0-9]{3}");
         Matcher m;
-        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern(Huesped.FORMATO_FECHA); //GUARDADO PARA OTRAS FECHAS
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern(Huesped.FORMATO_FECHA);
         m = p.matcher(mensaje);
 
         while(!m.matches()){
             System.out.println("Introduzca una fecha según el patrón (dd/MM/yyyy): ");
             mensaje = Entrada.cadena();
             m = p.matcher(mensaje);
+        }
+
+        return LocalDate.parse(mensaje, formatoFecha);
+    }
+
+    public static LocalDate leerFechaHora(String mensaje){
+
+        Pattern p2 = Pattern.compile("[0-3][0-9]/[0-1][0-9]/[1-2][0-9]{3}");
+        Matcher m2;
+        DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern(Huesped.FORMATO_FECHA);
+        m2 = p2.matcher(mensaje);
+
+        while(!m2.matches()){
+            System.out.println("Introduzca una fecha u hora según el patrón (dd/MM/yyyy HH:mm): ");
+            mensaje = Entrada.cadena();
+            m2 = p2.matcher(mensaje);
         }
 
         return LocalDate.parse(mensaje, formatoFecha);

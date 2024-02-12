@@ -35,7 +35,7 @@ public class Reservas {
     public int getTamano() {
         return tamano;
     }
-    public void insertar(Reserva reserva) throws OperationNotSupportedException {
+/*    public void insertar(Reserva reserva) throws OperationNotSupportedException {
         Habitaciones hab = new Habitaciones();
         if (reserva == null)
             throw new NullPointerException("ERROR: La reserva no puede ser nula.");
@@ -45,7 +45,7 @@ public class Reservas {
             throw new OperationNotSupportedException("ERROR: Se ha excedido la capacidad de las reservas.");
         coleccionReservas[tamano] = new Reserva(reserva);
         tamano++;
-    }
+    }*/
 
     private boolean existeHabitacion(String numeroHabitacion) {
 
@@ -99,17 +99,7 @@ public class Reservas {
             coleccionReservas[i] = new Reserva(coleccionReservas[i+1]);
         coleccionReservas[getTamano()] = null;
     }
-/*
-    public Reserva[] getColeccionReservas(Huesped huesped) {
-        return coleccionReservas;
-    }
-    public Reserva[] getColeccionReservas(TipoHabitacion tipoHabitacion) {
-        return coleccionReservas;
-    }
-    public Reserva[] getColeccionReservas(Habitacion habitacion) {
-        return coleccionReservas;
-    }
-*/
+
     public Reserva[] getReservas(Huesped huesped1) {
         return coleccionReservas;
     }

@@ -9,11 +9,13 @@ public class Habitaciones {
     private int tamano;
     private final Habitacion[] coleccionHabitaciones;
 
+    /*
     public Habitaciones() {
         this.coleccionHabitaciones = new Habitacion[0];
         this.capacidad = 0;
         this.tamano = 0;
     }
+    */
     public Habitaciones(int capacidad) {
         if (capacidad < 1)
             throw new IllegalArgumentException("ERROR: La capacidad de la habitación no puede ser inferior a 1.");
